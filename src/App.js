@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Container, Box, CircularProgress } from '@material-ui/core';
+import Home from './Screens/Home';
+import Cred from './Screens/Cred';
+import { Route } from 'react-router-dom';
+import StoreProvider, { storeContext } from './Context/StoreContext';
+import { CSSTransition } from 'react-transition-group';
+import Logo from './Components/Logo';
+import Intro from './Screens/Intro';
 
 function App() {
+  // const [state] = React.useContext(storeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <StoreProvider>
+        <Route
+          path='/'
+          component={() => {
+            return (
+              <div style={{ position: 'relative' }}>
+                <Logo />
+
+                <Cred />
+
+                <Intro />
+
+                <Home />
+              </div>
+            );
+          }}
+        />
+      </StoreProvider>
+    </React.Fragment>
   );
 }
 
