@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: '30px',
     zIndex: 4,
     top: '50%',
     left: '50%',
