@@ -13,6 +13,7 @@ import { storeContext } from '../Context/StoreContext';
 import { CSSTransition } from 'react-transition-group';
 
 import Axios from 'axios';
+import { CircularProgress } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,9 +60,11 @@ export default function Cred() {
 
   const [name, setName] = React.useState('');
   const [contact, setContact] = React.useState('');
+  const [isloading, setLoading] = React.useState(false);
 
   const submit = (event) => {
     event.preventDefault();
+    setLoading(true);
     Axios({
       url: 'https://formspree.io/mzbjvdwd',
       method: 'POST',
@@ -72,6 +75,7 @@ export default function Cred() {
         dispatch({ type: 'LOGGED' });
         setName('');
         setContact('');
+        setLoading(false);
       })
       .catch(alert);
   };
@@ -119,12 +123,17 @@ export default function Cred() {
 
               <Button
                 type='submit'
+                disabled={isloading}
                 fullWidth
                 variant='contained'
                 color='primary'
                 className={classes.submit}
               >
-                Submit
+                {isloading ? (
+                  <CircularProgress color='inherit' style={{ color: '#fff' }} />
+                ) : (
+                  'Submit'
+                )}
               </Button>
             </form>
           </div>
