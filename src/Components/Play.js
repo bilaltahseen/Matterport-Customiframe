@@ -19,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Play = () => {
   const classes = useStyles();
-  const [, dispatch] = React.useContext(storeContext);
+  const [state, dispatch] = React.useContext(storeContext);
   return (
     <React.Fragment>
       <Box
+        hidden={+state.playbtn}
         onClick={() => dispatch({ type: 'PLAY' })}
         className={classes.root}
       ></Box>
