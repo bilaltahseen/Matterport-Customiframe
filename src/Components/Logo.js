@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     width: 150,
 
     position: 'absolute',
+    pointerEvents: 'none',
     zIndex: 99999,
     top: '4%',
     opacity: 0.5,
