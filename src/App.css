@@ -1,6 +1,7 @@
 .resp-container {
   position: relative;
   overflow: hidden;
+  pointer-events: 'none';
 }
 .resp-container iframe {
   position: absolute;

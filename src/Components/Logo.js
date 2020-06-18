@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: 100,
       position: 'absolute',
+      pointerEvents: 'none',
       zIndex: 99999,
       top: '2%',
       opacity: 0.5,
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundImage: `url(${query().get('logoOverlay')})`,
     },
     width: 150,
+
     position: 'absolute',
     zIndex: 99999,
     top: '4%',

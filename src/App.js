@@ -1,17 +1,17 @@
-import React, { Suspense } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
-import { Container, Box, CircularProgress } from '@material-ui/core';
+
 import Home from './Screens/Home';
 import Cred from './Screens/Cred';
 import { Route } from 'react-router-dom';
-import StoreProvider, { storeContext } from './Context/StoreContext';
-import { CSSTransition } from 'react-transition-group';
+import StoreProvider from './Context/StoreContext';
+
 import Logo from './Components/Logo';
 import Intro from './Screens/Intro';
+import Blur from './Components/Blur';
 
 function App() {
-  // const [state] = React.useContext(storeContext);
   return (
     <React.Fragment>
       <StoreProvider>
@@ -27,6 +27,7 @@ function App() {
                 <Intro />
 
                 <Home />
+                <Blur />
               </div>
             );
           }}

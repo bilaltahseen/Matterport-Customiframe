@@ -5,9 +5,11 @@ import useQuery from '../Utils/useQuery';
 
 const Home = (props) => {
   const data = useQuery();
+
   return (
     <div style={{ height: '100vh' }} className='resp-container'>
       <iframe
+        title='Matterport'
         style={{ backgroundColor: 'black' }}
         src={`https://mpembed.com/show/?${data}`}
         frameBorder={0}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeStyles, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { storeContext } from '../Context/StoreContext';
-import { Transition, CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import useQuery from '../Utils/useQuery';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${useQuery().get('introImage')})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    backgroundPosition: 'center',
     transform: 'translate(-50%, -50%)',
   },
 }));
@@ -29,7 +30,7 @@ const Intro = () => {
   return (
     <React.Fragment>
       <CSSTransition
-        timeout={parseFloat(useQuery().get('introTime')) * 1000}
+        timeout={Math.abs(+useQuery().get('introTime') * 1000)}
         classNames='my-fade'
         in={state.isLogged}
         unmountOnExit
