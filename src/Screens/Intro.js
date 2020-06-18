@@ -20,6 +20,21 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     transform: 'translate(-50%, -50%)',
+    [theme.breakpoints.down('sm')]: {
+      position: 'absolute',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: 3,
+      top: '50%',
+      left: '50%',
+      width: '80%',
+      height: '40vh',
+      marginRight: '-50%',
+      backgroundImage: `url(${useQuery().get('introImage')})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      transform: 'translate(-50%, -50%)',
+    },
   },
 }));
 

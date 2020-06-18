@@ -5,6 +5,7 @@ import { storeContext } from '../Context/StoreContext';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 100,
+    cursor: 'pointer',
     position: 'absolute',
     zIndex: 2,
     top: ' 50%',
