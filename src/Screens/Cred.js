@@ -81,7 +81,6 @@ export default function Cred() {
         setContact('');
       })
       .catch((error) => alert(error));
-    dispatch({ type: 'LOGGED' });
     event.preventDefault();
   };
 
