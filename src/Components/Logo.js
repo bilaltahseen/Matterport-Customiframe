@@ -4,7 +4,7 @@ import query from '../Utils/useQuery';
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down('sm')]: {
-      width: 100,
+      width: +query().get('logoSize') - 50,
       position: 'absolute',
       pointerEvents: 'none',
       zIndex: 99999,
@@ -12,13 +12,12 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.5,
       padding: 10,
       right: '2%',
-      height: 100,
+      height: +query().get('logoSize') - 50,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundImage: `url(${query().get('logoOverlay')})`,
     },
-    width: 150,
-
+    width: +query().get('logoSize'),
     position: 'absolute',
     pointerEvents: 'none',
     zIndex: 99999,
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.5,
     padding: 10,
     right: '2%',
-    height: 150,
+    height: +query().get('logoSize'),
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
