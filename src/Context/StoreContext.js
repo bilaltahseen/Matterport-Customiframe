@@ -6,6 +6,7 @@ export const storeContext = createContext();
 
 const initialState = {
   isLogged: false,
+  playbtn: '0',
 };
 
 const StoreProvider = (props) => {

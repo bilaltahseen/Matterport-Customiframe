@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 9999,
+    zIndex: 4,
     top: '50%',
     left: '50%',
     width: '70%',
@@ -56,32 +56,23 @@ export default function Cred() {
   const classes = useStyles();
   const [state, dispatch] = React.useContext(storeContext);
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-      )
-      .join('&');
-  };
-
   const [name, setName] = React.useState('');
   const [contact, setContact] = React.useState('');
 
   const submit = (event) => {
+    event.preventDefault();
     Axios({
-      url: '/',
+      url: 'https://formspree.io/mzbjvdwd',
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'details', name, contact }),
+      headers: { 'Content-Type': 'application/json' },
+      data: { name: name, contact: contact },
     })
-      .then(() => {
+      .then((resp) => {
         dispatch({ type: 'LOGGED' });
-
         setName('');
         setContact('');
       })
-      .catch((error) => alert(error));
-    event.preventDefault();
+      .catch(alert);
   };
 
   return (

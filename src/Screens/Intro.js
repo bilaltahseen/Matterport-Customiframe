@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   divImage: {
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 9999,
+    zIndex: 3,
     top: '50%',
     left: '50%',
     width: '70%',
