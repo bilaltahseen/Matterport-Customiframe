@@ -64,6 +64,8 @@ export default function Cred() {
   const [email, setEmail] = React.useState('');
   const [isloading, setLoading] = React.useState(false);
   const id = useQuery().get('m');
+  const display = useQuery().get('detail') === '0' ? 'none' : '';
+
   const submit = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -91,7 +93,12 @@ export default function Cred() {
       unmountOnExit
       appear={false}
     >
-      <Container component='main' className={classes.root} maxWidth='md'>
+      <Container
+        component='main'
+        style={{ display: display }}
+        className={classes.root}
+        maxWidth='md'
+      >
         <Container maxWidth='sm'>
           <div className={classes.paper}>
             <Typography component='h1' variant='h5'>
