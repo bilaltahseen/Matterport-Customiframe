@@ -9,7 +9,7 @@ import StoreProvider from './Context/StoreContext';
 
 import Logo from './Components/Logo';
 import Intro from './Screens/Intro';
-import Blur from './Components/Blur';
+
 import Play from './Components/Play';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
                 <Intro />
 
                 <Home />
-                <Blur />
+
                 <Play />
               </div>
             );

@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
   root: { height: '100vh' },
   divImage: {
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     zIndex: 3,
     top: '50%',
     left: '50%',
@@ -22,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('sm')]: {
       position: 'absolute',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
       zIndex: 3,
       top: '50%',
       left: '50%',

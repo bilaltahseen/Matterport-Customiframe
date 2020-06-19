@@ -14,6 +14,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import Axios from 'axios';
 import { CircularProgress } from '@material-ui/core';
+import useQuery from '../Utils/useQuery';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,8 +61,9 @@ export default function Cred() {
 
   const [name, setName] = React.useState('');
   const [contact, setContact] = React.useState('');
+  const [email, setEmail] = React.useState('');
   const [isloading, setLoading] = React.useState(false);
-
+  const id = useQuery().get('m');
   const submit = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -69,11 +71,12 @@ export default function Cred() {
       url: 'https://formspree.io/mzbjvdwd',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      data: { name: name, contact: contact },
+      data: { id: id, name, contact, email },
     })
       .then((resp) => {
         dispatch({ type: 'LOGGED' });
         setName('');
+        setEmail('');
         setContact('');
         setLoading(false);
       })
@@ -114,11 +117,21 @@ export default function Cred() {
                 inputProps={{ className: classes.input }}
                 required
                 fullWidth
+                label='Email'
+                type='email'
+                onChange={(event) => setEmail(event.target.value)}
+                autoComplete='current-email'
+              />
+              <TextField
+                variant='filled'
+                color='primary'
+                margin='normal'
+                inputProps={{ className: classes.input }}
+                required
+                fullWidth
                 label='Phone Number'
                 type='number'
                 onChange={(event) => setContact(event.target.value)}
-                id='password'
-                autoComplete='current-password'
               />
 
               <Button

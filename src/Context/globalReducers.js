@@ -4,7 +4,7 @@ const reducer = (state, action) => {
       return { ...state, isLogged: true };
 
     case 'PLAY':
-      return { ...state, playbtn: 1 };
+      return { ...state, playbtn: '1' };
 
     default:
       return { ...state };
