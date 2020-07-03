@@ -10,8 +10,8 @@ const Home = (props) => {
   const version = useQuery().get('version');
   const url =
     version === 'default'
-      ? `http://my.matterport.com/show/?${data}&play=${state.playbtn}`
-      : `http://mpembed.com/show/?${data}&play=${state.playbtn}`;
+      ? `https://my.matterport.com/show/?${data}&play=${state.playbtn}`
+      : `https://mpembed.com/show/?${data}&play=${state.playbtn}`;
 
   return (
     <div style={{ height: '100vh' }} className='resp-container'>
